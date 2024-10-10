@@ -98,10 +98,6 @@ For mock data, the project uses JSON server. To run it:
    ```bash
    json-server --watch db.json --port 8080
    ```
-3. Install Firebase:
-   ```bash
-   npm install firebase
-   ```
 
 ### Run the Frontend
 
