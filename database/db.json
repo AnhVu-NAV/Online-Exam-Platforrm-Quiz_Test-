@@ -1,0 +1,730 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "username": "admin",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "email": "user1@gmail.com",
+      "password": "12345678",
+      "username": "user1",
+      "role": "user"
+    },
+    {
+      "id": "8302",
+      "email": "user2@gmail.com",
+      "username": "user2",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "id": "013c",
+      "email": "user3@gmail.com",
+      "username": "user3",
+      "password": "12345678",
+      "role": "user"
+    },
+    {
+      "id": "6ed3",
+      "email": "anhvuboy6@gmail.com",
+      "username": "anhvucp123",
+      "password": "anhvu123",
+      "role": "user",
+      "fullname": "Anh Vu",
+      "dob": "1990-01-01",
+      "profilePic": ""
+    },
+    {
+      "id": "8475",
+      "email": "example1@gmail.com",
+      "username": "exampleUser1",
+      "password": "12345678",
+      "role": "user",
+      "fullname": "Emily Davis",
+      "dob": "1995-07-11",
+      "profilePic": ""
+    },
+    {
+      "id": "8476",
+      "email": "example2@gmail.com",
+      "username": "exampleUser2",
+      "password": "12345678",
+      "role": "user",
+      "fullname": "James Williams",
+      "dob": "1993-03-14",
+      "profilePic": ""
+    }
+  ],
+  "exams": [
+    {
+      "id": "1001",
+      "title": "HTML Basics Exam",
+      "time": "30",
+      "subject": "html",
+      "level": "basic",
+      "questions": [
+        {
+          "question": "HTML stands for?",
+          "answers": [
+            "Hyper Text Markup Language",
+            "Home Tool Markup Language",
+            "Hyperlinks and Text Markup Language",
+            "None of the above"
+          ],
+          "answer_correct": "Hyper Text Markup Language"
+        },
+        {
+          "question": "Who is making the Web standards?",
+          "answers": [
+            "Mozilla",
+            "Microsoft",
+            "The World Wide Web Consortium",
+            "Google"
+          ],
+          "answer_correct": "The World Wide Web Consortium"
+        },
+        {
+          "question": "Which HTML element is used to define the title of a document?",
+          "answers": [
+            "<meta>",
+            "<title>",
+            "<head>",
+            "<header>"
+          ],
+          "answer_correct": "<title>"
+        }
+      ],
+      "highest_point": 10
+    },
+    {
+      "id": "1002",
+      "title": "HTML Intermediate Exam",
+      "time": "45",
+      "subject": "html",
+      "level": "medium",
+      "questions": [
+        {
+          "question": "What is the correct HTML element for inserting a line break?",
+          "answers": [
+            "<break>",
+            "<lb>",
+            "<br>",
+            "<newline>"
+          ],
+          "answer_correct": "<br>"
+        },
+        {
+          "question": "Which attribute is used to specify the destination URL of a link?",
+          "answers": [
+            "src",
+            "href",
+            "alt",
+            "link"
+          ],
+          "answer_correct": "href"
+        },
+        {
+          "question": "Which HTML element is used to define important text?",
+          "answers": [
+            "<b>",
+            "<strong>",
+            "<i>",
+            "<em>"
+          ],
+          "answer_correct": "<strong>"
+        },
+        {
+          "question": "Which HTML element is used to define emphasized text?",
+          "answers": [
+            "<i>",
+            "<strong>",
+            "<em>",
+            "<italic>"
+          ],
+          "answer_correct": "<em>"
+        },
+        {
+          "question": "What does the <iframe> tag in HTML do?",
+          "answers": [
+            "It inserts an inline frame (a frame within a webpage).",
+            "It imports external CSS.",
+            "It embeds multimedia content.",
+            "It defines a header."
+          ],
+          "answer_correct": "It inserts an inline frame (a frame within a webpage)."
+        }
+      ],
+      "highest_point": 15
+    },
+    {
+      "id": "1003",
+      "title": "CSS Basics Exam",
+      "time": "30",
+      "subject": "css",
+      "level": "basic",
+      "questions": [
+        {
+          "question": "What does CSS stand for?",
+          "answers": [
+            "Colorful Style Sheets",
+            "Cascading Style Sheets",
+            "Creative Style Sheets",
+            "Computer Style Sheets"
+          ],
+          "answer_correct": "Cascading Style Sheets"
+        },
+        {
+          "question": "Which property is used to change the background color?",
+          "answers": [
+            "background-color",
+            "color",
+            "bgcolor",
+            "background"
+          ],
+          "answer_correct": "background-color"
+        },
+        {
+          "question": "Which CSS property is used to change the text color of an element?",
+          "answers": [
+            "font-color",
+            "text-color",
+            "color",
+            "fgcolor"
+          ],
+          "answer_correct": "color"
+        }
+      ],
+      "highest_point": 10
+    },
+    {
+      "id": "1004",
+      "title": "CSS Advanced Exam",
+      "time": "45",
+      "subject": "css",
+      "level": "advanced",
+      "questions": [
+        {
+          "question": "Which property is used to change the font of an element?",
+          "answers": [
+            "font-family",
+            "font-style",
+            "text-style",
+            "font-weight"
+          ],
+          "answer_correct": "font-family"
+        },
+        {
+          "question": "How do you make each word in a text start with a capital letter?",
+          "answers": [
+            "text-transform:capitalize",
+            "text-style:capital",
+            "text-transform:uppercase",
+            "text-transform:lowercase"
+          ],
+          "answer_correct": "text-transform:capitalize"
+        },
+        {
+          "question": "Which property is used to change the left margin of an element?",
+          "answers": [
+            "indent",
+            "margin-left",
+            "padding-left",
+            "margin-right"
+          ],
+          "answer_correct": "margin-left"
+        },
+        {
+          "question": "Which CSS property controls the text size?",
+          "answers": [
+            "text-size",
+            "font-size",
+            "font-style",
+            "text-style"
+          ],
+          "answer_correct": "font-size"
+        }
+      ],
+      "highest_point": 20
+    },
+    {
+      "id": "1005",
+      "title": "JavaScript Basics Exam",
+      "time": "40",
+      "subject": "javascript",
+      "level": "basic",
+      "questions": [
+        {
+          "question": "Inside which HTML element do we put the JavaScript?",
+          "answers": [
+            "<js>",
+            "<script>",
+            "<javascript>",
+            "<code>"
+          ],
+          "answer_correct": "<script>"
+        },
+        {
+          "question": "How do you write 'Hello World' in an alert box?",
+          "answers": [
+            "alert('Hello World');",
+            "msg('Hello World');",
+            "alertBox('Hello World');",
+            "msgBox('Hello World');"
+          ],
+          "answer_correct": "alert('Hello World');"
+        },
+        {
+          "question": "Which event occurs when the user clicks on an HTML element?",
+          "answers": [
+            "onmouseclick",
+            "onchange",
+            "onclick",
+            "onmouseover"
+          ],
+          "answer_correct": "onclick"
+        }
+      ],
+      "highest_point": 12
+    },
+    {
+      "id": "1006",
+      "title": "JavaScript Advanced Exam",
+      "time": "60",
+      "subject": "javascript",
+      "level": "advanced",
+      "questions": [
+        {
+          "question": "What is the correct JavaScript syntax to write 'Hello World'?",
+          "answers": [
+            "response.write('Hello World');",
+            "'Hello World';",
+            "document.write('Hello World');",
+            "print('Hello World');"
+          ],
+          "answer_correct": "document.write('Hello World');"
+        },
+        {
+          "question": "What is the correct syntax for referring to an external script?",
+          "answers": [
+            "<script src='filename.js'>",
+            "<script href='filename.js'>",
+            "<script ref='filename.js'>",
+            "<script file='filename.js'>"
+          ],
+          "answer_correct": "<script src='filename.js'>"
+        },
+        {
+          "question": "How do you declare a JavaScript variable?",
+          "answers": [
+            "var myVariable;",
+            "variable myVariable;",
+            "v myVariable;",
+            "let variable;"
+          ],
+          "answer_correct": "var myVariable;"
+        },
+        {
+          "question": "How do you create a function in JavaScript?",
+          "answers": [
+            "function myFunction()",
+            "function = myFunction()",
+            "function:myFunction()",
+            "def myFunction()"
+          ],
+          "answer_correct": "function myFunction()"
+        }
+      ],
+      "highest_point": 25
+    },
+    {
+      "id": "1007",
+      "title": "ReactJS Basics Exam",
+      "time": "45",
+      "subject": "reactjs",
+      "level": "basic",
+      "questions": [
+        {
+          "question": "What is ReactJS?",
+          "answers": [
+            "A JavaScript library for building user interfaces",
+            "A CSS framework",
+            "A database",
+            "A server-side framework"
+          ],
+          "answer_correct": "A JavaScript library for building user interfaces"
+        },
+        {
+          "question": "What is JSX?",
+          "answers": [
+            "JavaScript Extension",
+            "A templating engine",
+            "A syntax extension for JavaScript",
+            "None of the above"
+          ],
+          "answer_correct": "A syntax extension for JavaScript"
+        },
+        {
+          "question": "Which method is used to create a React component?",
+          "answers": [
+            "createComponent()",
+            "React.createComponent()",
+            "React.Component()",
+            "extends React.Component"
+          ],
+          "answer_correct": "extends React.Component"
+        }
+      ],
+      "highest_point": 20
+    },
+    {
+      "id": "1008",
+      "title": "ReactJS Advanced Exam",
+      "time": "60",
+      "subject": "reactjs",
+      "level": "advanced",
+      "questions": [
+        {
+          "question": "Which of the following is a React lifecycle method?",
+          "answers": [
+            "componentDidMount()",
+            "onInit()",
+            "beforeUpdate()",
+            "renderView()"
+          ],
+          "answer_correct": "componentDidMount()"
+        },
+        {
+          "question": "What is the purpose of the React useState hook?",
+          "answers": [
+            "It creates a new state variable",
+            "It initializes a React component",
+            "It handles side effects",
+            "It binds event listeners"
+          ],
+          "answer_correct": "It creates a new state variable"
+        }
+      ],
+      "highest_point": 30
+    },
+    {
+      "id": "1009",
+      "title": "NodeJS Basics Exam",
+      "time": "50",
+      "subject": "nodejs",
+      "level": "basic",
+      "questions": [
+        {
+          "question": "What is Node.js?",
+          "answers": [
+            "A JavaScript runtime built on Chrome's V8 JavaScript engine",
+            "A framework for building UIs",
+            "A database",
+            "A cloud platform"
+          ],
+          "answer_correct": "A JavaScript runtime built on Chrome's V8 JavaScript engine"
+        },
+        {
+          "question": "Which of the following is a core module in Node.js?",
+          "answers": [
+            "http",
+            "mysql",
+            "express",
+            "mongodb"
+          ],
+          "answer_correct": "http"
+        }
+      ],
+      "highest_point": 20
+    },
+    {
+      "id": "1010",
+      "title": "NodeJS Advanced Exam",
+      "time": "70",
+      "subject": "nodejs",
+      "level": "advanced",
+      "questions": [
+        {
+          "question": "Which of the following is used to create a web server in Node.js?",
+          "answers": [
+            "http.createServer()",
+            "web.createServer()",
+            "server.create()",
+            "None of the above"
+          ],
+          "answer_correct": "http.createServer()"
+        },
+        {
+          "question": "How do you handle asynchronous operations in Node.js?",
+          "answers": [
+            "Callbacks",
+            "Promises",
+            "Async/Await",
+            "All of the above"
+          ],
+          "answer_correct": "All of the above"
+        },
+        {
+          "question": "Which module is used for working with file systems in Node.js?",
+          "answers": [
+            "fs",
+            "file",
+            "filesystem",
+            "fileSystem"
+          ],
+          "answer_correct": "fs"
+        },
+        {
+          "question": "What does the 'npm' stand for?",
+          "answers": [
+            "Node Package Manager",
+            "Network Package Manager",
+            "Node Programming Module",
+            "None of the above"
+          ],
+          "answer_correct": "Node Package Manager"
+        },
+        {
+          "question": "How do you install a Node.js module?",
+          "answers": [
+            "npm install <module_name>",
+            "node install <module_name>",
+            "install <module_name>",
+            "npm download <module_name>"
+          ],
+          "answer_correct": "npm install <module_name>"
+        }
+      ],
+      "highest_point": 40
+    },
+    {
+      "id": "1011",
+      "title": "ReactJS Expert Exam",
+      "time": "90",
+      "subject": "reactjs",
+      "level": "advanced",
+      "questions": [
+        {
+          "question": "What is the purpose of React context?",
+          "answers": [
+            "To pass data deeply without prop drilling",
+            "To handle side effects",
+            "To manage component lifecycle",
+            "To create reusable components"
+          ],
+          "answer_correct": "To pass data deeply without prop drilling"
+        },
+        {
+          "question": "What does useEffect hook do in React?",
+          "answers": [
+            "Runs side effects in components",
+            "Manages state",
+            "Handles asynchronous code",
+            "Creates UI templates"
+          ],
+          "answer_correct": "Runs side effects in components"
+        },
+        {
+          "question": "How do you prevent unnecessary re-renders in React components?",
+          "answers": [
+            "Use React.memo()",
+            "Always return null in render",
+            "Pass empty dependencies in useEffect",
+            "Avoid using props"
+          ],
+          "answer_correct": "Use React.memo()"
+        },
+        {
+          "question": "What is the correct way to lazy load a component in React?",
+          "answers": [
+            "React.lazy(() => import('Component'))",
+            "import 'Component' lazily",
+            "loadComponent('Component')",
+            "Lazy.Component('Component')"
+          ],
+          "answer_correct": "React.lazy(() => import('Component'))"
+        }
+      ],
+      "highest_point": 50
+    }
+  ],
+  "histories": [
+    {
+      "id": "4af9",
+      "idUser": "1",
+      "idExam": "1001",
+      "subject": "html",
+      "title": "HTML Basics Exam",
+      "time_progess": 4,
+      "score": 8
+    },
+    {
+      "id": "4891",
+      "idUser": "2",
+      "idExam": "1002",
+      "subject": "html",
+      "title": "HTML Intermediate Exam",
+      "time_progess": 5,
+      "score": 10
+    },
+    {
+      "id": "72ca",
+      "idUser": "8302",
+      "idExam": "1003",
+      "subject": "css",
+      "title": "CSS Basics Exam",
+      "time_progess": 3,
+      "score": 6
+    },
+    {
+      "id": "5783",
+      "idUser": "8475",
+      "idExam": "1007",
+      "subject": "reactjs",
+      "title": "ReactJS Basics Exam",
+      "time_progess": 4,
+      "score": 7
+    },
+    {
+      "id": "1c80",
+      "idUser": "8476",
+      "idExam": "1010",
+      "subject": "nodejs",
+      "title": "NodeJS Advanced Exam",
+      "time_progess": 6,
+      "score": 12
+    },
+    {
+      "id": "932c",
+      "idUser": "8475",
+      "idExam": "1009",
+      "subject": "nodejs",
+      "title": "NodeJS Basics Exam",
+      "time_progess": 5,
+      "score": 9
+    },
+    {
+      "id": "5aef",
+      "idUser": "8476",
+      "idExam": "1005",
+      "subject": "javascript",
+      "title": "JavaScript Basics Exam",
+      "time_progess": 6,
+      "score": 10
+    },
+    {
+      "id": "63d8",
+      "idUser": "1",
+      "idExam": "1008",
+      "subject": "reactjs",
+      "title": "ReactJS Advanced Exam",
+      "time_progess": 7,
+      "score": 15
+    },
+    {
+      "id": "92a1",
+      "idUser": "6ed3",
+      "idExam": "1004",
+      "subject": "css",
+      "title": "CSS Advanced Exam",
+      "time_progess": 5,
+      "score": 14
+    }
+  ],
+  "comments": [
+    {
+      "idUser": "1",
+      "username": "User1",
+      "examId": "6551",
+      "content": "Bài thi rất hữu ích!",
+      "createdAt": "2024-01-15T10:00:00Z",
+      "id": "a6ef"
+    },
+    {
+      "idUser": "2",
+      "username": "User2",
+      "examId": "0aa2",
+      "content": "Đề thi cần thêm câu hỏi.",
+      "createdAt": "2024-02-05T12:30:00Z",
+      "id": "e0ef"
+    },
+    {
+      "idUser": "8302",
+      "username": "User3",
+      "examId": "c194",
+      "content": "Javascript khó nhưng hữu ích.",
+      "createdAt": "2024-03-10T14:45:00Z",
+      "id": "8fde"
+    },
+    {
+      "idUser": "8475",
+      "username": "EmilyD",
+      "examId": "35f8",
+      "content": "ReactJS quá tuyệt!",
+      "createdAt": "2024-04-02T09:00:00Z",
+      "id": "3dac"
+    },
+    {
+      "id": "1af0",
+      "idUser": "6ed3",
+      "username": "anhvucp123",
+      "examId": "1001",
+      "content": "khó thế",
+      "createdAt": "2024-10-10T07:52:22.655Z"
+    }
+  ],
+  "feedbacks": [
+    {
+      "id": "1",
+      "email": "user1@gmail.com",
+      "fullname": "John Doe",
+      "content": "I love this platform! It's really helpful for preparing for exams.",
+      "createdAt": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "email": "user2@gmail.com",
+      "fullname": "Jane Smith",
+      "content": "Some exams are missing key information. Please check.",
+      "createdAt": "2024-02-05T12:30:00Z"
+    },
+    {
+      "id": "3",
+      "email": "user3@gmail.com",
+      "fullname": "Michael Johnson",
+      "content": "Great platform but needs more variety in questions.",
+      "createdAt": "2024-03-10T14:45:00Z"
+    },
+    {
+      "id": "4",
+      "email": "user4@gmail.com",
+      "fullname": "Alice Brown",
+      "content": "Can we have more interactive quizzes?",
+      "createdAt": "2024-03-12T09:20:00Z"
+    },
+    {
+      "id": "5",
+      "email": "newuser1@gmail.com",
+      "fullname": "Chris Evans",
+      "content": "The quizzes are very engaging!",
+      "createdAt": "2024-05-10T08:30:00Z"
+    },
+    {
+      "id": "6",
+      "email": "newuser2@gmail.com",
+      "fullname": "Mark Ruffalo",
+      "content": "Would love to see more CSS-related quizzes.",
+      "createdAt": "2024-05-15T12:50:00Z"
+    },
+    {
+      "id": "c4f6",
+      "fullname": "Nguyen Anh Vu",
+      "email": "anhvuboy6@gmail.com",
+      "content": "fgfg",
+      "createdAt": "2024-10-10T16:44:56.193Z"
+    }
+  ]
+}
