@@ -3,7 +3,7 @@
     {
       "id": "1",
       "email": "admin@gmail.com",
-      "password": "admin",
+      "password": "admin123",
       "username": "admin",
       "role": "admin"
     },
@@ -34,7 +34,7 @@
       "username": "anhvucp123",
       "password": "anhvu123",
       "role": "user",
-      "fullname": "Anh Vu",
+      "fullname": "Anh Vu Nguyen",
       "dob": "1990-01-01",
       "profilePic": ""
     },
@@ -56,6 +56,16 @@
       "role": "user",
       "fullname": "James Williams",
       "dob": "1993-03-14",
+      "profilePic": ""
+    },
+    {
+      "id": "714b",
+      "email": "demo@gmail.com",
+      "username": "Demo",
+      "password": "1234demo",
+      "role": "user",
+      "fullname": "Demo",
+      "dob": "2024-10-03",
       "profilePic": ""
     }
   ],
@@ -89,12 +99,7 @@
         },
         {
           "question": "Which HTML element is used to define the title of a document?",
-          "answers": [
-            "<meta>",
-            "<title>",
-            "<head>",
-            "<header>"
-          ],
+          "answers": ["<meta>", "<title>", "<head>", "<header>"],
           "answer_correct": "<title>"
         }
       ],
@@ -109,42 +114,22 @@
       "questions": [
         {
           "question": "What is the correct HTML element for inserting a line break?",
-          "answers": [
-            "<break>",
-            "<lb>",
-            "<br>",
-            "<newline>"
-          ],
+          "answers": ["<break>", "<lb>", "<br>", "<newline>"],
           "answer_correct": "<br>"
         },
         {
           "question": "Which attribute is used to specify the destination URL of a link?",
-          "answers": [
-            "src",
-            "href",
-            "alt",
-            "link"
-          ],
+          "answers": ["src", "href", "alt", "link"],
           "answer_correct": "href"
         },
         {
           "question": "Which HTML element is used to define important text?",
-          "answers": [
-            "<b>",
-            "<strong>",
-            "<i>",
-            "<em>"
-          ],
+          "answers": ["<b>", "<strong>", "<i>", "<em>"],
           "answer_correct": "<strong>"
         },
         {
           "question": "Which HTML element is used to define emphasized text?",
-          "answers": [
-            "<i>",
-            "<strong>",
-            "<em>",
-            "<italic>"
-          ],
+          "answers": ["<i>", "<strong>", "<em>", "<italic>"],
           "answer_correct": "<em>"
         },
         {
@@ -179,22 +164,12 @@
         },
         {
           "question": "Which property is used to change the background color?",
-          "answers": [
-            "background-color",
-            "color",
-            "bgcolor",
-            "background"
-          ],
+          "answers": ["background-color", "color", "bgcolor", "background"],
           "answer_correct": "background-color"
         },
         {
           "question": "Which CSS property is used to change the text color of an element?",
-          "answers": [
-            "font-color",
-            "text-color",
-            "color",
-            "fgcolor"
-          ],
+          "answers": ["font-color", "text-color", "color", "fgcolor"],
           "answer_correct": "color"
         }
       ],
@@ -209,12 +184,7 @@
       "questions": [
         {
           "question": "Which property is used to change the font of an element?",
-          "answers": [
-            "font-family",
-            "font-style",
-            "text-style",
-            "font-weight"
-          ],
+          "answers": ["font-family", "font-style", "text-style", "font-weight"],
           "answer_correct": "font-family"
         },
         {
@@ -229,22 +199,12 @@
         },
         {
           "question": "Which property is used to change the left margin of an element?",
-          "answers": [
-            "indent",
-            "margin-left",
-            "padding-left",
-            "margin-right"
-          ],
+          "answers": ["indent", "margin-left", "padding-left", "margin-right"],
           "answer_correct": "margin-left"
         },
         {
           "question": "Which CSS property controls the text size?",
-          "answers": [
-            "text-size",
-            "font-size",
-            "font-style",
-            "text-style"
-          ],
+          "answers": ["text-size", "font-size", "font-style", "text-style"],
           "answer_correct": "font-size"
         }
       ],
@@ -259,12 +219,7 @@
       "questions": [
         {
           "question": "Inside which HTML element do we put the JavaScript?",
-          "answers": [
-            "<js>",
-            "<script>",
-            "<javascript>",
-            "<code>"
-          ],
+          "answers": ["<js>", "<script>", "<javascript>", "<code>"],
           "answer_correct": "<script>"
         },
         {
@@ -279,12 +234,7 @@
         },
         {
           "question": "Which event occurs when the user clicks on an HTML element?",
-          "answers": [
-            "onmouseclick",
-            "onchange",
-            "onclick",
-            "onmouseover"
-          ],
+          "answers": ["onmouseclick", "onchange", "onclick", "onmouseover"],
           "answer_correct": "onclick"
         }
       ],
@@ -429,12 +379,7 @@
         },
         {
           "question": "Which of the following is a core module in Node.js?",
-          "answers": [
-            "http",
-            "mysql",
-            "express",
-            "mongodb"
-          ],
+          "answers": ["http", "mysql", "express", "mongodb"],
           "answer_correct": "http"
         }
       ],
@@ -469,12 +414,7 @@
         },
         {
           "question": "Which module is used for working with file systems in Node.js?",
-          "answers": [
-            "fs",
-            "file",
-            "filesystem",
-            "fileSystem"
-          ],
+          "answers": ["fs", "file", "filesystem", "fileSystem"],
           "answer_correct": "fs"
         },
         {
@@ -632,6 +572,39 @@
       "title": "CSS Advanced Exam",
       "time_progess": 5,
       "score": 14
+    },
+    {
+      "id": "a1f7",
+      "idExam": "1001",
+      "subject": "html",
+      "title": "HTML Basics Exam",
+      "time_progess": 4,
+      "score": 0
+    },
+    {
+      "id": "3448",
+      "idExam": "1001",
+      "subject": "html",
+      "title": "HTML Basics Exam",
+      "time_progess": 7,
+      "score": 0
+    },
+    {
+      "id": "a502",
+      "idUser": "bab5",
+      "idExam": "1001",
+      "subject": "html",
+      "title": "HTML Basics Exam",
+      "time_progess": 6,
+      "score": 0
+    },
+    {
+      "id": "13e4",
+      "idExam": "1001",
+      "subject": "html",
+      "title": "HTML Basics Exam",
+      "time_progess": 6,
+      "score": 0
     }
   ],
   "comments": [
@@ -674,6 +647,35 @@
       "examId": "1001",
       "content": "khó thế",
       "createdAt": "2024-10-10T07:52:22.655Z"
+    },
+    {
+      "id": "fddb",
+      "username": "abc123",
+      "examId": "1001",
+      "content": "test bình luận trong đè kiểm tra",
+      "createdAt": "2024-10-10T17:54:22.098Z"
+    },
+    {
+      "id": "4870",
+      "username": "abc123",
+      "examId": "1001",
+      "content": "demo bình luận",
+      "createdAt": "2024-10-10T18:05:04.147Z"
+    },
+    {
+      "id": "4c11",
+      "idUser": "bab5",
+      "username": "Demo",
+      "examId": "1001",
+      "content": "demo binh luan de kiem tra",
+      "createdAt": "2024-10-10T18:23:29.861Z"
+    },
+    {
+      "id": "fe17",
+      "username": "Demo",
+      "examId": "1001",
+      "content": "Demo  binh luan",
+      "createdAt": "2024-10-10T18:31:22.324Z"
     }
   ],
   "feedbacks": [
@@ -725,6 +727,34 @@
       "email": "anhvuboy6@gmail.com",
       "content": "fgfg",
       "createdAt": "2024-10-10T16:44:56.193Z"
+    },
+    {
+      "id": "04fe",
+      "fullname": "Nguyen Anh Vu",
+      "email": "abc@gmail.com",
+      "content": "demo gui feedback chưa dang nhap",
+      "createdAt": "2024-10-10T17:52:46.757Z"
+    },
+    {
+      "id": "b533",
+      "fullname": "Nguyen Anh Vu",
+      "email": "abc@gmail.com",
+      "content": "demo gửi feedback ",
+      "createdAt": "2024-10-10T18:03:28.406Z"
+    },
+    {
+      "id": "7b03",
+      "fullname": "Nguyen Anh Vu",
+      "email": "abc@gmail.com",
+      "content": "demo gửi feedback của abc@gmail.com",
+      "createdAt": "2024-10-10T18:19:22.848Z"
+    },
+    {
+      "id": "4ec8",
+      "fullname": "Nguyen Anh Vu",
+      "email": "abc@gmail.com",
+      "content": "demo gửi feedback cho hẹ thong",
+      "createdAt": "2024-10-10T18:29:30.857Z"
     }
   ]
 }
