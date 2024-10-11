@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css';
-import { Button, notification, Radio, Space, Spin, Input} from 'antd';
+import { Button, notification, Radio, Space, Spin, Input, Avatar } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
+import CustomComment from '../../components/Comment/CustomComment'; // Custom Comment Component
 
-const { TextArea } = Input;  // Extract TextArea from Input
+const { TextArea } = Input;
 
 const DetailExam = () => {
 	const { userCurrent } = useAuth();
@@ -12,20 +13,16 @@ const DetailExam = () => {
 	const navigate = useNavigate();
 
 	const [api, contextHolder] = notification.useNotification();
-
 	const [isLoading, setIsLoading] = useState(false);
 	const [startTimer, setStartTimer] = useState(false);
 	const [isActive, setIsActive] = useState(false);
-	// phút * giây
 	const [time, setTime] = useState(1 * 5);
 	const [detailExam, setDetailExam] = useState({});
 	const [answerOfUser, setAnswerOfUser] = useState([]);
 	const [score, setScore] = useState(0);
-	const [comments, setComments] = useState([]);  // State để lưu danh sách bình luận
-	const [newComment, setNewComment] = useState('');  // State để lưu bình luận mới
-	// State quản lý trạng thái
-	// false => chưa nộp bài
-	// true => đã nộp bài
+	const [comments, setComments] = useState([]);
+	const [newComment, setNewComment] = useState('');
+	const [replyComment, setReplyComment] = useState({});
 	const [isSubmited, setSubmited] = useState(false);
 
 	const answerConvert = {
@@ -47,7 +44,6 @@ const DetailExam = () => {
 
 	const convertSlugToId = (slug) => {
 		const id = slug.split('-').pop().split('.').shift();
-
 		return id;
 	};
 
@@ -61,7 +57,6 @@ const DetailExam = () => {
 			const exam = await response.json();
 
 			setTime(exam.time * 60);
-
 			setDetailExam(exam);
 			setIsLoading(false);
 		} catch (err) {
@@ -72,7 +67,6 @@ const DetailExam = () => {
 	const handleCalScore = (value, indexQuestion) => {
 		const answerOfUserTemp = [...answerOfUser];
 		answerOfUserTemp[indexQuestion] = value;
-
 		setAnswerOfUser(answerOfUserTemp);
 	};
 
@@ -81,29 +75,25 @@ const DetailExam = () => {
 		let highest_point = detailExam.highest_point ?? 0;
 
 		for (let i = 0; i < detailExam.questions.length; i++) {
-			if (answerOfUser[i] === detailExam.questions[i].answer_correct) {
+			if (String(answerOfUser[i]) === String(detailExam.questions[i].answer_correct)) {
 				countAnswerCorrect += 1;
 			}
 		}
 
 		if (countAnswerCorrect > highest_point) {
-			// Cập nhật điểm cao nhất
 			const detailExamUpdate = {
 				...detailExam,
-				highest_point: countAnswerCorrect
-			}
-			try{
-				const response = await fetch(`http://localhost:8080/exams/${detailExam.id}`, {
+				highest_point: countAnswerCorrect,
+			};
+			try {
+				await fetch(`http://localhost:8080/exams/${detailExam.id}`, {
 					method: 'PUT',
 					body: JSON.stringify(detailExamUpdate),
 					headers: {
 						'Content-Type': 'application/json',
 					},
 				});
-	
-			} catch (e) {
-
-			}
+			} catch (e) { }
 		}
 
 		setSubmited(true);
@@ -119,7 +109,7 @@ const DetailExam = () => {
 		};
 
 		try {
-			const response = await fetch('http://localhost:8080/histories', {
+			await fetch('http://localhost:8080/histories', {
 				method: 'POST',
 				body: JSON.stringify(record),
 				headers: {
@@ -132,13 +122,12 @@ const DetailExam = () => {
 			});
 		} catch (e) {
 			api.error({
-				message: 'Nộp thất bài',
+				message: 'Nộp thất bại',
 			});
 		}
-
-		// console.log('countAnswerCorrect: ', countAnswerCorrect);
 	};
-	// Hàm lấy bình luận từ server
+
+	// Fetch comments
 	const fetchComments = async (idExam) => {
 		try {
 			const response = await fetch(`http://localhost:8080/comments?examId=${idExam}`);
@@ -149,19 +138,18 @@ const DetailExam = () => {
 		}
 	};
 
-	// Hàm gửi bình luận mới
-	const submitComment = async () => {
+	// Submit a new comment or reply
+	const submitComment = async (parentId = null) => {
 		if (!newComment.trim()) {
-			api.error({
-				message: 'Không thể gửi bình luận rỗng',
-			});
+			api.error({ message: 'Không thể gửi bình luận rỗng' });
 			return;
 		}
 		const commentData = {
 			idUser: userCurrent.id,
 			username: userCurrent.username,
-			examId: detailExam.id,
+			examId: params.idExam,
 			content: newComment,
+			parentId, // If replying, include parent comment ID
 			createdAt: new Date().toISOString(),
 		};
 
@@ -169,32 +157,58 @@ const DetailExam = () => {
 			const response = await fetch('http://localhost:8080/comments', {
 				method: 'POST',
 				body: JSON.stringify(commentData),
-				headers: {
-					'Content-Type': 'application/json',
-				},
+				headers: { 'Content-Type': 'application/json' },
 			});
 			if (response.ok) {
-				api.success({
-					message: 'Bình luận đã được gửi',
-				});
-				// Cập nhật danh sách bình luận sau khi gửi
+				api.success({ message: 'Bình luận đã được gửi' });
 				setComments([...comments, commentData]);
-				setNewComment('');  // Xóa nội dung trong ô nhập bình luận
+				setNewComment('');
+				setReplyComment({});
 			}
 		} catch (e) {
-			api.error({
-				message: 'Không thể gửi bình luận',
-			});
+			api.error({ message: 'Không thể gửi bình luận' });
 		}
 	};
 
+	// Handle replying to a comment
+	const handleReply = (commentId) => {
+		setReplyComment({ [commentId]: true });
+	};
+
+	// Cancel replying
+	const handleCancelReply = () => {
+		setReplyComment({});
+	};
 
 	useEffect(() => {
 		const id = convertSlugToId(params.idExam);
-
 		fetchExam(id);
-		fetchComments(id);  // Lấy bình luận khi tải trang
+		fetchComments(id);
 	}, []);
+
+	// Render the comment list with reply functionality
+	const CommentList = ({ comments, onReply }) => (
+		<div>
+			{comments.map((comment) => (
+				<CustomComment
+					key={comment.id}
+					author={comment.username}
+					avatar={<Avatar>{comment.username[0]}</Avatar>}
+					content={comment.content}
+					actions={[
+						<span onClick={() => onReply(comment.id)}>Reply</span>,
+					]}
+				>
+					{comment.replies && comment.replies.length > 0 && (
+						<CommentList
+							comments={comment.replies}
+							onReply={onReply}
+						/>
+					)}
+				</CustomComment>
+			))}
+		</div>
+	);
 
 	useEffect(() => {
 		let interval = null;
@@ -226,11 +240,10 @@ const DetailExam = () => {
 	useEffect(() => {
 		const handleBeforeUnload = (event) => {
 			if (startTimer) {
-				const message =
-					'Bạn có chắc chắn muốn rời khỏi trang? Thời gian làm bài sẽ bị mất!';
-				event.preventDefault(); // Đảm bảo trình duyệt hiển thị cảnh báo
-				event.returnValue = message; // Thêm thuộc tính để hiển thị thông báo trên trình duyệt
-				return message; // Một số trình duyệt yêu cầu trả về thông báo
+				const message = 'Bạn có chắc chắn muốn rời khỏi trang? Thời gian làm bài sẽ bị mất!';
+				event.preventDefault();
+				event.returnValue = message;
+				return message;
 			}
 		};
 
@@ -252,17 +265,15 @@ const DetailExam = () => {
 	) : (
 		<div className='exam-detail-container'>
 			{contextHolder}
-			{/* Header */}
 			<header className='exam-header'>
 				<div className='exam-title'>
-					<h1>Tên Đề Thi</h1>
+					<h1>{detailExam?.title}</h1>
 				</div>
 				<div className='back-button'>
 					<Button onClick={() => navigate(-1)}>Quay lại</Button>
 				</div>
 			</header>
 
-			{/* Exam Info */}
 			<section
 				className='exam-info'
 				style={{
@@ -280,8 +291,7 @@ const DetailExam = () => {
 						<strong>Thời gian làm bài:</strong> {detailExam?.time} phút
 					</p>
 					<p>
-						<strong>Số lượng câu hỏi:</strong> {detailExam?.questions?.length}{' '}
-						câu
+						<strong>Số lượng câu hỏi:</strong> {detailExam?.questions?.length} câu
 					</p>
 				</div>
 				<div style={{ display: !isSubmited && 'none' }}>
@@ -291,8 +301,6 @@ const DetailExam = () => {
 					</h1>
 				</div>
 			</section>
-
-			{/* Countdown Timer */}
 
 			<div className='countdown-timer'>
 				{startTimer ? (
@@ -304,9 +312,7 @@ const DetailExam = () => {
 				)}
 			</div>
 
-			{/* Questions List */}
 			<section className='questions-section'>
-				{/* Question */}
 				{detailExam.questions?.map((question, index) => (
 					<div key={`question-${index + 1}`} className='question-item'>
 						<p>
@@ -315,12 +321,12 @@ const DetailExam = () => {
 						<div className='answer-options' style={{ marginTop: '10px' }}>
 							<Radio.Group
 								onChange={(event) => handleCalScore(event.target.value, index)}
+								value={answerOfUser[index]}
 							>
 								<Space direction='vertical' style={{ width: '100%' }}>
 									{question?.answers.map((answer, indexAnswer) => (
 										<Radio
 											value={answerConvert[indexAnswer]}
-											// disabled={startTimer ? false : true}
 											disabled={!startTimer || isSubmited}
 										>
 											<div
@@ -334,10 +340,13 @@ const DetailExam = () => {
 														marginRight: '8px',
 														width: '78px',
 														color:
-															question.answer_correct ==
-																answerConvert[indexAnswer] && isSubmited
+															question.answer_correct === answerConvert[indexAnswer] &&
+																isSubmited
 																? 'green'
-																: 'black',
+																: answerOfUser[index] === answerConvert[indexAnswer] &&
+																	isSubmited
+																	? 'red'
+																	: 'black',
 													}}
 												>
 													{answer}
@@ -352,7 +361,6 @@ const DetailExam = () => {
 				))}
 			</section>
 
-			{/* Submit Button */}
 			{startTimer && !isSubmited && (
 				<footer className='exam-footer'>
 					<Button
@@ -364,25 +372,44 @@ const DetailExam = () => {
 					</Button>
 				</footer>
 			)}
-			{/* Phần bình luận */}
-			<section className='comments-section'>
+
+			<section className="comments-section">
 				<h2>Bình luận</h2>
-				{comments.map((comment, index) => (
-					<div key={index} className='comment-item'>
-						<strong>{comment.username}:</strong> {comment.content}
-					</div>
-				))}
-				
-				{/* Ô nhập bình luận */}
-				<TextArea
-					value={newComment}
-					onChange={(e) => setNewComment(e.target.value)}
-					placeholder="Viết bình luận của bạn..."
-					rows={4}
+				{/* Add new comment section */}
+				<div className="new-comment-section">
+					<TextArea
+						value={newComment}
+						onChange={(e) => setNewComment(e.target.value)}
+						placeholder="Viết bình luận của bạn..."
+						rows={4}
+					/>
+					<Button type="primary" onClick={() => submitComment(null)}>
+						Gửi bình luận
+					</Button>
+				</div>
+
+				{/* Existing Comments */}
+				<CommentList
+					comments={comments.filter(comment => !comment.parentId)} // Display only top-level comments
+					onReply={handleReply}
 				/>
-				<Button type='primary' onClick={submitComment} style={{ marginTop: '10px' }}>
-					Gửi bình luận
-				</Button>
+
+				{/* Reply input for replying to a specific comment */}
+				{Object.keys(replyComment).length > 0 && (
+					<div className="reply-section">
+						<TextArea
+							value={newComment}
+							onChange={(e) => setNewComment(e.target.value)}
+							placeholder="Viết phản hồi của bạn..."
+						/>
+						<Button onClick={() => submitComment(Object.keys(replyComment)[0])}>
+							Reply
+						</Button>
+						<Button onClick={handleCancelReply}>Cancel</Button>
+					</div>
+				)}
+
+
 			</section>
 		</div>
 	);

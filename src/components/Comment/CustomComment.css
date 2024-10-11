@@ -1,0 +1,42 @@
+/* src/components/CustomComment.css */
+.custom-comment {
+    border: 1px solid #e8e8e8;
+    padding: 16px;
+    margin-bottom: 16px;
+    background-color: #fafafa;
+    border-radius: 8px;
+  }
+  
+  .comment-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  
+  .avatar {
+    margin-right: 8px;
+  }
+  
+  .author {
+    font-weight: bold;
+  }
+  
+  .comment-content {
+    margin-bottom: 8px;
+  }
+  
+  .comment-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .action-item {
+    cursor: pointer;
+    color: #1890ff;
+    transition: color 0.3s;
+  }
+  
+  .action-item:hover {
+    color: #40a9ff;
+  }
+  
