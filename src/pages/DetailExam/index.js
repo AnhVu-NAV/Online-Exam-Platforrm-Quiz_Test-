@@ -294,12 +294,14 @@ const DetailExam = () => {
 						<strong>Số lượng câu hỏi:</strong> {detailExam?.questions?.length} câu
 					</p>
 				</div>
-				<div style={{ display: !isSubmited && 'none' }}>
-					<h2>Số câu trả lời đúng</h2>
-					<h1>
-						{score}/{detailExam?.questions?.length}
-					</h1>
-				</div>
+				{isSubmited && (
+					<div>
+						<h2>Số câu trả lời đúng</h2>
+						<h1>
+							{score}/{detailExam?.questions?.length}
+						</h1>
+					</div>
+				)}
 			</section>
 
 			<div className='countdown-timer'>
@@ -312,54 +314,57 @@ const DetailExam = () => {
 				)}
 			</div>
 
-			<section className='questions-section'>
-				{detailExam.questions?.map((question, index) => (
-					<div key={`question-${index + 1}`} className='question-item'>
-						<p>
-							<strong>Câu {index + 1}:</strong> {question.question} ?
-						</p>
-						<div className='answer-options' style={{ marginTop: '10px' }}>
-							<Radio.Group
-								onChange={(event) => handleCalScore(event.target.value, index)}
-								value={answerOfUser[index]}
-							>
-								<Space direction='vertical' style={{ width: '100%' }}>
-									{question?.answers.map((answer, indexAnswer) => (
-										<Radio
-											value={answerConvert[indexAnswer]}
-											disabled={!startTimer || isSubmited}
-										>
-											<div
-												style={{
-													display: 'flex',
-													alignItems: 'center',
-												}}
+			{/* Chỉ hiển thị câu hỏi khi bài thi bắt đầu */}
+			{startTimer && (
+				<section className='questions-section'>
+					{detailExam.questions?.map((question, index) => (
+						<div key={`question-${index + 1}`} className='question-item'>
+							<p>
+								<strong>Câu {index + 1}:</strong> {question.question} ?
+							</p>
+							<div className='answer-options' style={{ marginTop: '10px' }}>
+								<Radio.Group
+									onChange={(event) => handleCalScore(event.target.value, index)}
+									value={answerOfUser[index]}
+								>
+									<Space direction='vertical' style={{ width: '100%' }}>
+										{question?.answers.map((answer, indexAnswer) => (
+											<Radio
+												value={answerConvert[indexAnswer]}
+												disabled={!startTimer || isSubmited}
 											>
 												<div
 													style={{
-														marginRight: '8px',
-														width: '78px',
-														color:
-															question.answer_correct === answerConvert[indexAnswer] &&
-																isSubmited
-																? 'green'
-																: answerOfUser[index] === answerConvert[indexAnswer] &&
-																	isSubmited
-																	? 'red'
-																	: 'black',
+														display: 'flex',
+														alignItems: 'center',
 													}}
 												>
-													{answer}
+													<div
+														style={{
+															marginRight: '8px',
+															width: '78px',
+															color:
+																question.answer_correct === answerConvert[indexAnswer] &&
+																	isSubmited
+																	? 'green'
+																	: answerOfUser[index] === answerConvert[indexAnswer] &&
+																		isSubmited
+																		? 'red'
+																		: 'black',
+														}}
+													>
+														{answer}
+													</div>
 												</div>
-											</div>
-										</Radio>
-									))}
-								</Space>
-							</Radio.Group>
+											</Radio>
+										))}
+									</Space>
+								</Radio.Group>
+							</div>
 						</div>
-					</div>
-				))}
-			</section>
+					))}
+				</section>
+			)}
 
 			{startTimer && !isSubmited && (
 				<footer className='exam-footer'>
